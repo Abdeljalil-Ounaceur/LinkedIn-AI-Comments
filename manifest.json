@@ -1,6 +1,6 @@
 {
 	"manifest_version": 3,
-	"name": "My Beautiful Extention",
+	"name": "LinkedIn AI Comments",
 	"version": "1.0.0",
 	"permissions": [
 		"storage"
@@ -8,8 +8,12 @@
 	"options_page": "options.html",
 	"content_scripts": [
 		{
-			"matches": ["https://www.linkedin.com/*"],
-			"js":["content.js"]
+			"matches": [
+				"https://www.linkedin.com/*"
+			],
+			"js": [
+				"content.js"
+			]
 		}
 	]
 }
