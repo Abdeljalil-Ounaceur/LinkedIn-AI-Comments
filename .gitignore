@@ -1,0 +1,20 @@
+# .gitignore
+
+# Never commit API keys or sensitive data
+config.js
+.env
+.env.local
+
+# Chrome extension private key
+*.pem
+
+# Node modules if you add any build tools
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
