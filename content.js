@@ -16,7 +16,33 @@ const addSuggestionButton = (commentBox) => {
     <path d="M8 10h.01M12 10h.01M16 10h.01"></path></svg>`;
     button.style.cssText = "display: flex; align-items: center; justify-content: center; padding: 6px; border: none; background: transparent; cursor: pointer;";
     button.addEventListener("click", async () => {
-        commentBox.querySelector(".ql-editor").innerHTML = await fetchResponse(createPrompt(commentBox));
+        const editor = commentBox.querySelector(".ql-editor");
+
+        // Save original button content
+        const originalButtonHTML = button.innerHTML;
+
+        // Change button to loading spinner
+        button.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="animation: spin 1s linear infinite;">
+                <circle cx="12" cy="12" r="10" opacity="0.25"></circle>
+                <path d="M12 2a10 10 0 0 1 10 10" opacity="0.75"></path>
+            </svg>
+            <style>
+                @keyframes spin {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+            </style>
+        `;
+        button.disabled = true;
+
+        // Fetch response
+        const response = await fetchResponse(createPrompt(commentBox));
+        editor.innerHTML = response;
+
+        // Restore original button icon
+        button.innerHTML = originalButtonHTML;
+        button.disabled = false;
     });
     commentBox.querySelector(".justify-space-between").prepend(button);
 };
