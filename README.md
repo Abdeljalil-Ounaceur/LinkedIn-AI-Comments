@@ -2,6 +2,10 @@
 
 A Chrome extension that helps you write AI-powered replies to LinkedIn posts and comments using Google's Gemini API.
 
+## Demo
+
+![LinkedIn AI Assistant Demo](assets/demo.gif)
+
 ## Features
 
 - 🤖 AI-powered reply suggestions for LinkedIn posts and comments
